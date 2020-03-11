@@ -1,8 +1,11 @@
 // my script
-var containerDiv = document.createElement('div');
-containerDiv.classList.add('grid-container');
-document.body.appendChild(containerDiv);
+// var containerDiv = document.createElement('div');
+// containerDiv.classList.add('grid-container');
+// document.body.appendChild(containerDiv);
 function makeRows(rows, cols) {
+  var containerDiv = document.createElement('div');
+  containerDiv.classList.add('grid-container');
+  document.body.insertBefore(containerDiv, document.body.children[3]);
   var gridContainer = document.getElementsByClassName('grid-container')[0];
   gridContainer.style.setProperty('--grid-rows', rows);
   gridContainer.style.setProperty('--grid-cols', cols);
@@ -29,10 +32,11 @@ var y = document.querySelectorAll('.grid-item');
 // // Button
 function buttonClick(){
   var htmlCollection = document.getElementsByClassName('grid-item');
-  for (var i=htmlCollection.length-1; i=0; i--){
+  for (var i=htmlCollection.length-1; i>0; i--){
     htmlCollection[i].remove();
   }
-  
+  htmlCollection[0].remove();
+  document.getElementsByClassName('grid-container')[0].remove();
   var input = prompt('Clearing the grid. How many squares per side to make the new grid?');
   var numInput = parseInt(input);
   // var newGrid = document.createElement('div');

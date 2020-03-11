@@ -12,26 +12,32 @@
         }
         .grid-container{
             display: grid;
-            grid-gap: 1em;
-            grid-template-rows: repeat(var(--grid-rows), auto);
-            grid-template-columns: repeat(var(--grid-cols), auto);
-            /* background-color: lightblue; */
+            justify-content: right;
+            position:fixed;
+            /* grid-gap: 1em; */
+            grid-template-rows: repeat(var(--grid-rows), 1fr);
+            grid-template-columns: repeat(var(--grid-cols), 1fr);
+            background-color: white;
             border: 1px solid;
-            margin: auto;
-            width: 960px;
+            width: 43vw;
+            height: 43vw;
         }
         .grid-item{
-            padding: 1.1em;
-            margin: -20%;
-            border: 1px solid;
-            background-color: white;
+            width: fit-content;
+            height: fit-content;
+            /* padding: 1em; */
+            border: 0.2em ridge;
+            /* border-style: ; */
+            /* background-color: white; */
         }
-        /* .grid-item:hover{ */
-            /* background-color: lightgrey; */
-        /* } */
+        .grid-item:hover{
+            background-color: lightgrey;
+        }
     </style>
     <body>
-        
+        <!-- <div class="grid-container"> -->
+
+        <!-- </div> -->
         <script src="dom.js"></script>
     </body>
 </html>
