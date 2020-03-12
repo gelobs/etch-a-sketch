@@ -1,7 +1,13 @@
 // my script
-// var containerDiv = document.createElement('div');
-// containerDiv.classList.add('grid-container');
-// document.body.appendChild(containerDiv);
+
+// Make grid 16x16
+makeRows(16, 16);
+
+// Button click event listener
+var bt = document.getElementById("bt");
+bt.addEventListener("click", buttonClick);
+
+// Create grid-container and grid items dynamically
 function makeRows(rows, cols) {
   var containerDiv = document.createElement('div');
   containerDiv.classList.add('grid-container');
@@ -15,34 +21,29 @@ function makeRows(rows, cols) {
   };
 };
 
-makeRows(16, 16);
-
-function mouseOver(e){
-    console.log(e);
-    e.srcElement.style.backgroundColor = 'lightgrey';
-};
-// var x = document.getElementsByClassName('grid-item');
-// console.log(document.getElementsByClassName('grid-item'));
-var y = document.querySelectorAll('.grid-item');
-
-[].forEach.call(y, function(e){
-    e.addEventListener('mouseover', mouseOver);
+// Use jQuery to make colorization work even after grid-container replacement
+$(document).on('mouseover','.grid-item',function(e){
+  // console.log(e);  
+  e.currentTarget.style.backgroundColor = 'lightgrey';
 });
 
 // // Button
 function buttonClick(){
+  // Remove grid-items
   var htmlCollection = document.getElementsByClassName('grid-item');
   for (var i=htmlCollection.length-1; i>0; i--){
     htmlCollection[i].remove();
   }
   htmlCollection[0].remove();
+  // Remove grid container
   document.getElementsByClassName('grid-container')[0].remove();
   var input = prompt('Clearing the grid. How many squares per side to make the new grid?');
-  var numInput = parseInt(input);
-  // var newGrid = document.createElement('div');
-  // newGrid.classList.add('grid-container');
-  // document.body.insertBefore(newGrid, document.body.children[3]);
+  while(input == '' || input == null){
+    input = prompt('Give a proper integer input!');
+  }
+  // Cast to int
+  var numInput = parseInt(input); 
+  // Make new grid
   makeRows(numInput, numInput);
 };
-var bt = document.getElementById("bt");
-bt.addEventListener("click", buttonClick);
+
