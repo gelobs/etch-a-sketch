@@ -1,0 +1,2 @@
+In this project I built a browser version of something between a sketchpad and an Etch-A-Sketch. I dynamically made a grid with DOM manipulation and CSS Grid. I used also a little bit of jQuery. The initial grid is 16x16. The user can colorize the grid cells, on mouseover, in greyscale color. The user can click a button to clear the grid and make a new one of his choice. The project is built according to The Odin Project's [curriculum](https://www.theodinproject.com/lessons/etch-a-sketch-project)
+
